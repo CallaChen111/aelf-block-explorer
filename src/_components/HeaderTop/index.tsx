@@ -8,6 +8,7 @@ import { IsMain } from '@_utils/isMainNet';
 import { useEffect, useState } from 'react';
 import { Card } from 'antd';
 import MobileHeaderMenu from '@_components/MobileHeaderMenu';
+import { SearchThemeMode } from '@_components/Search/type';
 
 // at public file
 const TopIconMain = '/image/aelf-header-top.svg';
@@ -85,19 +86,11 @@ export default function HeaderTop({
 
             {!isHideSearch && (
               <Search
-                searchIcon={true}
-                searchButton={false}
-                enterIcon={true}
-                searchWrapClassNames={clsx(
-                  'px-3',
-                  'py-2',
-                  'max-w-[509px]',
-                  'rounded',
-                  IsMain ? 'border-[#3A4668] bg-transparent' : 'border-D0 bg-F7 rounded',
-                )}
-                searchInputClassNames={clsx('!pl-0', IsMain && 'placeholder:!text-white !text-white')}
+                searchButton
+                searchWrapClassNames="max-w-[509px]"
                 placeholder={'Search by Address / Txn Hash / Block'}
-                lightMode={!IsMain}
+                pageThemeMode={IsMain ? SearchThemeMode.MAIN : SearchThemeMode.LIGHT}
+                modalThemeMode={IsMain ? SearchThemeMode.MAIN : SearchThemeMode.LIGHT}
               />
             )}
             <div className={clsx(`${clsPrefix}-right`)}>

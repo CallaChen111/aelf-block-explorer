@@ -8,8 +8,14 @@ import Item from './Item';
 import { TSearchPanelProps, TSingle } from './type';
 import { useKeyEvent } from '@_hooks/useSearch';
 import { useThrottleFn } from 'ahooks';
-import IconFont from '@_components/IconFont';
-function Panel({ id, searchHandler }: TSearchPanelProps) {
+import Image from 'next/image';
+import SearchNotFound from 'public/image/search-not-found.svg';
+import { Flex } from 'antd';
+import { FontWeightEnum, Typography } from 'aelf-design';
+
+const { Title } = Typography;
+
+function Panel({ id, isInModal, searchHandler }: TSearchPanelProps) {
   // Global state from context
   const { state } = useSearchContext();
   const { query, queryResultData } = state;
@@ -84,19 +90,19 @@ function Panel({ id, searchHandler }: TSearchPanelProps) {
     });
   }
 
-  if (!query) {
-    return null;
-  }
-
-  if (allList.length === 0) {
-    return (
-      <div className="search-result-panel">
-        <div className="search-result-empty">
-          <IconFont type="result-empty" className="w-3 h-3 mr-1" />
-          <span>Sorry, search not found.</span>
-        </div>
-      </div>
-    );
+  if (!query || allList.length === 0) {
+    if (isInModal) {
+      return (
+        <Flex className="search-result-empty" gap={12} align="center" justify="center" vertical>
+          <Image className="size-16" src={SearchNotFound} alt="" />
+          <Title level={6} fontWeight={FontWeightEnum.Medium}>
+            No Result
+          </Title>
+        </Flex>
+      );
+    } else {
+      return null;
+    }
   }
 
   return (
@@ -128,33 +134,6 @@ function Panel({ id, searchHandler }: TSearchPanelProps) {
           );
         })}
       </ul>
-      <div className="search-result-bottom">
-        <div className="flex gap-4">
-          <div className="search-result-bottom-button-wrap">
-            <div className="search-result-bottom-button">
-              <IconFont className="w-3 h-3" type="Down" />
-            </div>
-            <div className="search-result-bottom-button">
-              <IconFont className="w-3 h-3" type="Up" />
-            </div>
-            <span>Navigator</span>
-          </div>
-          <div className="search-result-bottom-button-wrap">
-            <div className="search-result-bottom-button !w-9">
-              <span>Esc</span>
-            </div>
-            <span>Close</span>
-          </div>
-        </div>
-        <div>
-          <div className="search-result-bottom-button-wrap">
-            <div className="search-result-bottom-button !w-9">
-              <IconFont className="w-3 h-3" type="Union" />
-            </div>
-            <span>Enter</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

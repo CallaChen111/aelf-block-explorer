@@ -15,6 +15,7 @@ import './index.css';
 import Search from '@_components/Search';
 import { IsMain } from '@_utils/isMainNet';
 import clsx from 'clsx';
+import { SearchThemeMode } from '@_components/Search/type';
 
 const NETWORK_TYPE = process.env.NEXT_PUBLIC_NETWORK_TYPE;
 const CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID;
@@ -93,19 +94,11 @@ export default function Header({ priceSSR, previousPriceSSR, explorerList, netwo
         {isMobile && !isHideSearch && (
           <div className={clsx('px-3', 'py-2', IsMain && 'bg-main-blue')}>
             <Search
-              searchIcon={true}
-              searchButton={false}
-              enterIcon={true}
-              searchWrapClassNames={clsx(
-                'px-3',
-                ' py-2',
-                'max-w-[509px]',
-                'rounded',
-                IsMain ? 'border-[#3A4668] bg-transparent' : 'border-D0 bg-F7 rounded',
-              )}
-              searchInputClassNames={clsx('!pl-0', IsMain && 'placeholder:!text-white !text-white')}
+              searchButton
+              searchWrapClassNames="max-w-[509px]"
               placeholder={'Search by Address / Txn Hash / Block'}
-              lightMode={!IsMain}
+              pageThemeMode={IsMain ? SearchThemeMode.MAIN : SearchThemeMode.LIGHT}
+              modalThemeMode={IsMain ? SearchThemeMode.MAIN : SearchThemeMode.LIGHT}
             />
           </div>
         )}

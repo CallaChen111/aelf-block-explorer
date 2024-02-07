@@ -8,13 +8,16 @@
 import { Dropdown, MenuProps } from 'antd';
 import { TSearchValidator } from './type';
 import IconFont from '@_components/IconFont';
-import { ReactElement, cloneElement, memo } from 'react';
+import { ReactElement, cloneElement, memo, useState } from 'react';
 import { useSearchContext } from './SearchProvider';
 import { setFilterType } from './action';
+import clsx from 'clsx';
 
 function SearchSelect({ searchValidator }: { searchValidator?: TSearchValidator }) {
   const { state, dispatch } = useSearchContext();
   const { filterType } = state;
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   if (!searchValidator || Object.keys(searchValidator).length === 0) {
     return null;
@@ -23,6 +26,7 @@ function SearchSelect({ searchValidator }: { searchValidator?: TSearchValidator 
   const items = searchValidator.map((ele) => ({ label: ele.label, key: ele.key }));
 
   const filterClickHandler: MenuProps['onClick'] = (obj) => {
+    setIsDropdownOpen(false);
     dispatch(setFilterType(searchValidator[obj.key]));
   };
   return (
@@ -36,10 +40,11 @@ function SearchSelect({ searchValidator }: { searchValidator?: TSearchValidator 
             className: '!flex !gap-1 !flex-col !shadow-search !w-[114px] !p-2 !-ml-4 !mt-[9px]',
           })}
         </div>
-      )}>
+      )}
+      onOpenChange={(open) => setIsDropdownOpen(open)}>
       <div className="filter-wrap">
         <span>{filterType?.label}</span>
-        <IconFont className="right-arrow" type="Down" />
+        <IconFont className={clsx('right-arrow', isDropdownOpen && 'rotate-180')} type="Down" />
       </div>
     </Dropdown>
   );

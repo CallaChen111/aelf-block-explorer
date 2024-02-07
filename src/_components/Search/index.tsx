@@ -6,17 +6,18 @@
  * @Description: root of search component
  */
 import { SearchContextProvider } from './SearchProvider';
-import { ISearchProps } from './type';
+import { ISearchProps, SearchSize, SearchThemeMode } from './type';
 import SearchBox from './SearchBox';
 
 const propDefaults = {
   placeholder: '',
   searchIcon: false,
   searchButton: true,
-  enterIcon: false,
   deleteIcon: true,
   isMobile: false,
-  lightMode: false,
+  pageThemeMode: SearchThemeMode.HOME,
+  modalThemeMode: SearchThemeMode.MAIN,
+  size: SearchSize.MEDIUM,
 };
 export default function Search(props: ISearchProps) {
   const componentProps = { ...propDefaults, ...props };

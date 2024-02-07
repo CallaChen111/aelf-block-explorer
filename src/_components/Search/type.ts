@@ -40,6 +40,7 @@ export type TSearchValidator = Array<TValidator>;
 
 export type TSearchPanelProps = {
   id: string;
+  isInModal?: boolean;
   searchHandler: () => void;
 };
 
@@ -65,18 +66,30 @@ export type BasicActions<T = string> = {
   dispatch: (actions: { type: T; payload: any }) => void;
 };
 
+export enum SearchThemeMode {
+  LIGHT = 'light',
+  MAIN = 'main',
+  HOME = 'home',
+}
+
+export enum SearchSize {
+  SMALL = 'small',
+  MEDIUM = 'medium',
+  LARGE = 'large',
+}
+
 export interface ISearchProps {
-  lightMode?: boolean;
+  pageThemeMode?: SearchThemeMode;
+  modalThemeMode?: SearchThemeMode;
+  size?: SearchSize;
   isMobile?: boolean;
   searchValidator?: TSearchValidator;
   placeholder?: string;
   searchIcon?: boolean | React.ReactNode;
   onSearchButtonClickHandler?: (query: string) => void;
   searchButton?: boolean;
-  enterIcon?: boolean;
   deleteIcon?: boolean;
   searchWrapClassNames?: string;
-  searchInputClassNames?: string;
 }
 
 export enum SearchActions {

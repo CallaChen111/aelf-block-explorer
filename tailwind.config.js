@@ -15,6 +15,7 @@ module.exports = {
     extend: {
       colors: {
         'main-blue': '#1D2A51',
+        'light-blue': '#ADC6FF',
         'rise-red': '#FF4D4F',
         'fall-green': '#05bd72',
         'global-grey': '#f7f8f9',
@@ -39,6 +40,13 @@ module.exports = {
         'yellow-stroke': '#FADEAB',
         warning: '#FAAD14',
         'yellow-fill': '#FEF6E7',
+        border_main: '#444F70',
+        disable_main: '#5D6783',
+        disable_font: '#BBBBBB',
+        hover_main: '#28355A',
+        hover_brand: '#BBD0FF',
+        divider_main: '#3A4668',
+        pressed_main: '#798BB3',
       },
       boxShadow: {
         table: '0px 8px 16px 0px rgba(0, 0, 0, 0.04)',
