@@ -222,7 +222,7 @@
 .searchbox-modal-wrap-large .search-wrap {
   @apply h-12;
   .search-button{
-    @apply size-8;
+    @apply !size-8;
     svg {
       @apply size-4;
     }

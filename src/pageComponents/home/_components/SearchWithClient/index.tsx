@@ -33,7 +33,7 @@ export default function SearchComp({ isMobile }: { isMobile: boolean }) {
   }
   return (
     <Search
-      size={SearchSize.LARGE}
+      pageSearchSize={SearchSize.LARGE}
       searchValidator={isMobile ? undefined : searchValidator}
       placeholder={'Search by Address / Txn Hash / Block'}
       isMobile={isMobile}

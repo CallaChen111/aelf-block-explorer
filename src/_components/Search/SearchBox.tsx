@@ -26,7 +26,8 @@ const randomId = () => `searchbox-${(0 | (Math.random() * 6.04e7)).toString(36)}
 const Search = ({
   pageThemeMode,
   modalThemeMode,
-  size,
+  pageSearchSize,
+  modalSearchSize,
   isMobile,
   searchValidator,
   placeholder,
@@ -121,12 +122,7 @@ const Search = ({
       return <div onClick={onSearchHandler}>{searchButton}</div>;
     }
     return (
-      <Button
-        className="search-button"
-        type="primary"
-        icon={<IconFont className="search-button-icon" type="search" />}
-        onClick={onSearchHandler}
-      />
+      <Button className="search-button" type="primary" icon={<IconFont type="search" />} onClick={onSearchHandler} />
     );
   }
 
@@ -137,7 +133,7 @@ const Search = ({
           'searchbox-wrap',
           searchWrapClassNames,
           `searchbox-wrap-${pageThemeMode}`,
-          `searchbox-wrap-${size}`,
+          `searchbox-wrap-${pageSearchSize}`,
         )}
         aria-expanded={isExpanded}>
         <SearchSelect searchValidator={searchValidator} />
@@ -149,7 +145,7 @@ const Search = ({
         className={clsx(
           'searchbox-modal-wrap',
           `searchbox-modal-wrap-${modalThemeMode}`,
-          `searchbox-modal-wrap-${size}`,
+          `searchbox-modal-wrap-${modalSearchSize}`,
         )}
         open={isModalOpen}
         footer={null}

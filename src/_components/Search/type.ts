@@ -81,7 +81,8 @@ export enum SearchSize {
 export interface ISearchProps {
   pageThemeMode?: SearchThemeMode;
   modalThemeMode?: SearchThemeMode;
-  size?: SearchSize;
+  pageSearchSize?: SearchSize;
+  modalSearchSize?: SearchSize;
   isMobile?: boolean;
   searchValidator?: TSearchValidator;
   placeholder?: string;

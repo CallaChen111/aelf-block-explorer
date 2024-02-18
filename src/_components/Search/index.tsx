@@ -17,7 +17,8 @@ const propDefaults = {
   isMobile: false,
   pageThemeMode: SearchThemeMode.HOME,
   modalThemeMode: SearchThemeMode.MAIN,
-  size: SearchSize.MEDIUM,
+  pageSearchSize: SearchSize.MEDIUM,
+  modalSearchSize: SearchSize.MEDIUM,
 };
 export default function Search(props: ISearchProps) {
   const componentProps = { ...propDefaults, ...props };
