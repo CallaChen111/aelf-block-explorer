@@ -33,17 +33,18 @@ function SearchSelect({ searchValidator }: { searchValidator?: TSearchValidator 
     <Dropdown
       // open={true}
       trigger={['click']}
+      placement="bottom"
       menu={{ items, onClick: filterClickHandler, selectable: true, defaultSelectedKeys: ['0'] }}
       dropdownRender={(menu) => (
         <div>
           {cloneElement(menu as ReactElement, {
-            className: '!flex !gap-1 !flex-col !shadow-search !w-[114px] !p-2 !-ml-4 !mt-[9px]',
+            className: 'search-filter-menu-wrap',
           })}
         </div>
       )}
       onOpenChange={(open) => setIsDropdownOpen(open)}>
       <div className="filter-wrap">
-        <span>{filterType?.label}</span>
+        <div className="filter-label">{filterType?.label}</div>
         <IconFont className={clsx('right-arrow', isDropdownOpen && 'rotate-180')} type="Down" />
       </div>
     </Dropdown>

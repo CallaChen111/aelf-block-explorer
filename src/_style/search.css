@@ -1,5 +1,27 @@
+/* To increase the style weight */
+.search-filter-menu-wrap.explorer-dropdown-menu {
+  @apply w-[114px] px-0 py-2 -ml-[7px] mt-3 shadow-search;
+  .explorer-dropdown-menu-item {
+    @apply p-2 text-sm/[22px] rounded-none hover:bg-F7 hover:text-base-100 active:bg-F7 active:text-button_active !important;
+  }
+  .explorer-dropdown-menu-item-selected {
+    @apply bg-white text-link !important;
+  }
+}
+
 .searchbox-wrap {
   @apply flex relative items-center border z-[1] border-solid w-full md:w-[728px];
+  .filter-wrap {
+    @apply text-base font-normal pr-2 pl-1 flex items-center gap-2 cursor-pointer border-r border-[#E6E6E6] max-[500px]:hidden;
+    .filter-label {
+      @apply w-[70px] truncate;
+    }
+    .right-arrow {
+      svg {
+        @apply w-4 h-4;
+      }
+    }
+  }
   .search-result-panel {
     @apply w-full flex-grow absolute z-[100] rounded-lg shadow-search bg-white top-12 left-0 text-xs;
   }
@@ -7,14 +29,6 @@
 
 .searchbox-wrap,
 .searchbox-modal-wrap {
-  .filter-wrap {
-    @apply text-base font-normal pr-2 pl-1 flex items-center gap-2 cursor-pointer border-r border-[#E6E6E6] max-[500px]:hidden;
-    .right-arrow {
-      svg {
-        @apply w-4 h-4;
-      }
-    }
-  }
   .search-result-panel{
     .search-result-panel-anchor{
       @apply h-6 leading-6 cursor-pointer border border-D0 rounded-full px-2 py-[2px] flex items-center gap-1 hover:bg-32 hover:text-white hover:border-32 active:bg-button_active active:border-button_active;
