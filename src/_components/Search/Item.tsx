@@ -23,7 +23,7 @@ const Item = ({ index, item }: { index: number; item: Partial<TSingle> }) => {
       onMouseDown={itemMouseDownHandler}
       onMouseMove={itemMouseEnterHandler}
       data-sort-idx={index}
-      className={clsx('search-result-ul-item', isHighlighted && 'bg-[#D8DDE5]')}>
+      className={clsx('search-result-ul-item', isHighlighted && 'bg-F7')}>
       {tmpFlag ? (
         <>
           {item.address && <span className="search-result-ul-item-circle">C</span>}

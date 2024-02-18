@@ -108,7 +108,7 @@ function Panel({ id, isInModal, searchHandler }: TSearchPanelProps) {
   return (
     <div id={id} className="search-result-panel">
       <div className="border-color-divider border-b">
-        <div className="p-4 flex gap-2">
+        <div className="search-result-panel-anchor-wrap">
           {Object.entries(dataWithOrderIdx).map(([searchType], idx) => {
             return (
               <div
