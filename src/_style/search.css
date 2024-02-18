@@ -32,42 +32,42 @@
 
 .searchbox-wrap,
 .searchbox-modal-wrap {
-  .search-result-panel{
+  .search-result-panel {
     .search-result-panel-anchor-wrap {
       @apply flex gap-2;
     }
-    .search-result-panel-anchor{
+    .search-result-panel-anchor {
       @apply h-6 text-xs/[20px] font-medium cursor-pointer border border-D0 rounded-full px-[11px] flex items-center gap-1 hover:bg-32 hover:text-white hover:border-32 active:bg-button_active active:border-button_active;
-      &.selected{
+      &.selected {
         @apply bg-link text-white border-link hover:bg-32  hover:border-32 active:bg-button_active active:border-button_active;
-      };
-      svg{
-        @apply hover:stroke-white stroke-1
+      }
+      svg {
+        @apply hover:stroke-white stroke-1;
       }
     }
-    .search-result-ul{
+    .search-result-ul {
       @apply overflow-auto  relative max-h-[420px];
-      .search-result-ul-wrap{
+      .search-result-ul-wrap {
         @apply py-2 border-color-divider border-b last:border-b-0;
       }
       .search-result-ul-title,
       .search-result-ul-item {
         @apply px-4 py-2 leading-20;
       }
-      .search-result-ul-title{
+      .search-result-ul-title {
         @apply font-medium;
       }
-      .search-result-ul-item{
+      .search-result-ul-item {
         @apply cursor-pointer gap-1 flex items-center flex-wrap;
       }
-      .search-result-ul-item-circle{
+      .search-result-ul-item-circle {
         @apply border-D0 rounded-full border w-6 h-6 text-center text-base-100 font-bold leading-22;
       }
-      .search-result-ul-item-gray{
-        @apply text-base-200
+      .search-result-ul-item-gray {
+        @apply text-base-200;
       }
-      .search-result-ul-item-button{
-        @apply flex px-2 h-6 leading-6 rounded bg-ECEEF2 font-medium gap-1
+      .search-result-ul-item-button {
+        @apply flex px-2 h-6 leading-6 rounded bg-ECEEF2 font-medium gap-1;
       }
     }
   }
@@ -119,7 +119,6 @@
         }
       }
     }
-
   }
   &-light {
     .explorer-modal-content {
@@ -133,20 +132,20 @@
   }
 }
 
-.searchbox-wrap, 
+.searchbox-wrap,
 .searchbox-modal-wrap .search-wrap {
   @apply flex items-center gap-2 p-2 bg-white rounded border border-D0 hover:border-32 focus-within:border-link;
   .search-input-wrap {
     @apply flex flex-1 items-center gap-2 relative;
   }
-  .search-input-query-icon{
+  .search-input-query-icon {
     @apply flex;
     svg {
       @apply size-4 text-disable_font;
     }
   }
   .search-input {
-    @apply !text-base text-base-100 caret-link outline-0 border-0 font-normal flex-1 bg-transparent overflow-hidden text-ellipsis whitespace-nowrap placeholder:!text-disable_font placeholder:text-ellipsis; 
+    @apply !text-base text-base-100 caret-link outline-0 border-0 font-normal flex-1 bg-transparent overflow-hidden text-ellipsis whitespace-nowrap placeholder:!text-disable_font placeholder:text-ellipsis;
   }
   .search-input-clear {
     @apply size-4 cursor-pointer rounded-full flex items-center justify-center bg-D0;
@@ -156,7 +155,7 @@
     &:active {
       @apply bg-disable_font;
     }
-    svg{
+    svg {
       @apply text-white w-2 h-2;
     }
   }
@@ -171,9 +170,9 @@
   }
 }
 
-.searchbox-wrap-home, 
+.searchbox-wrap-home,
 .searchbox-modal-wrap-home .search-wrap {
-  .search-button{
+  .search-button {
     @apply bg-link;
     &:hover {
       @apply bg-32;
@@ -184,7 +183,7 @@
   }
 }
 
-.searchbox-wrap-light, 
+.searchbox-wrap-light,
 .searchbox-modal-wrap-light .search-wrap {
   .search-button {
     @apply bg-D0;
@@ -197,7 +196,7 @@
   }
 }
 
-.searchbox-wrap-main, 
+.searchbox-wrap-main,
 .searchbox-modal-wrap-main .search-wrap {
   @apply bg-hover_main border-border_main hover:border-hover_brand focus-within:border-light-blue;
   .search-input {
@@ -219,7 +218,7 @@
     &:active {
       @apply bg-disable_main;
     }
-    svg{
+    svg {
       @apply text-hover_main;
     }
   }
@@ -234,20 +233,20 @@
   }
 }
 
-.searchbox-wrap-small, 
+.searchbox-wrap-small,
 .searchbox-modal-wrap-small .search-wrap {
   @apply py-1;
 }
 
-.searchbox-wrap-medium, 
+.searchbox-wrap-medium,
 .searchbox-modal-wrap-medium .search-wrap {
   @apply h-10;
 }
 
-.searchbox-wrap-large, 
+.searchbox-wrap-large,
 .searchbox-modal-wrap-large .search-wrap {
   @apply h-12;
-  .search-button{
+  .search-button {
     @apply !size-8;
     svg {
       @apply size-4;
