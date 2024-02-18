@@ -12,6 +12,7 @@ import Image from 'next/image';
 import SearchNotFound from 'public/image/search-not-found.svg';
 import { Flex } from 'antd';
 import { FontWeightEnum, Typography } from 'aelf-design';
+import IconFont from '@_components/IconFont';
 
 const { Title } = Typography;
 
@@ -99,6 +100,15 @@ function Panel({ id, isInModal, searchHandler }: TSearchPanelProps) {
             No Result
           </Title>
         </Flex>
+      );
+    } else if (query) {
+      return (
+        <div className="search-result-panel">
+          <div className="search-result-empty">
+            <IconFont type="result-empty" className="mr-1 size-3" />
+            <span>Sorry, search not found.</span>
+          </div>
+        </div>
       );
     } else {
       return null;
